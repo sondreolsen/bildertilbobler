@@ -56,31 +56,39 @@ const seeded = (index: number) => {
 };
 
 const packedPositions = [
-  [500, 330, 94],
-  [656, 372, 78],
-  [415, 455, 70],
-  [572, 500, 64],
-  [762, 478, 48],
-  [314, 344, 46],
-  [727, 272, 42],
-  [460, 210, 40],
-  [612, 222, 38],
-  [310, 508, 36],
-  [810, 360, 35],
-  [678, 565, 34],
-  [390, 270, 32],
-  [508, 624, 31],
-  [258, 422, 30],
-  [850, 520, 29],
+  [555, 382, 132],
+  [730, 382, 78],
+  [430, 520, 72],
+  [430, 254, 68],
+  [666, 248, 50],
+  [775, 510, 48],
+  [332, 386, 46],
+  [576, 570, 44],
+  [552, 204, 40],
+  [850, 398, 38],
+  [700, 590, 36],
+  [328, 504, 35],
+  [800, 292, 34],
+  [470, 662, 32],
+  [348, 282, 31],
+  [902, 492, 30],
+  [624, 672, 28],
+  [250, 432, 27],
+  [872, 318, 26],
+  [512, 112, 25],
+  [254, 558, 24],
+  [736, 690, 23],
+  [930, 408, 22],
+  [304, 224, 21],
 ];
 
 export const bubbles: Bubble[] = Array.from({ length: 120 }, (_, index) => {
   const isHero = index < 4;
   const grid = index - packedPositions.length;
-  const ring = Math.floor(grid / 20);
-  const slot = grid % 20;
-  const angle = (slot / 20) * Math.PI * 2 + ring * 0.31;
-  const radius = 230 + ring * 42 + seeded(index + 11) * 28;
+  const ring = Math.floor(Math.max(0, grid) / 24);
+  const slot = Math.max(0, grid) % 24;
+  const angle = (slot / 24) * Math.PI * 2 + ring * 0.21;
+  const radius = 260 + ring * 34 + seeded(index + 11) * 18;
   const endRadius = isHero ? packedPositions[index][2] : index < packedPositions.length ? packedPositions[index][2] : 10 + seeded(index + 3) * 13;
 
   return {
@@ -95,9 +103,9 @@ export const bubbles: Bubble[] = Array.from({ length: 120 }, (_, index) => {
       r: 8 + seeded(index + 4) * 19,
     },
     middle: {
-      x: 600 + Math.cos(index * 2.399) * (45 + seeded(index + 5) * 165),
-      y: 390 + Math.sin(index * 2.399) * (40 + seeded(index + 6) * 135),
-      r: 11 + seeded(index + 7) * 16,
+      x: 600 + Math.cos(index * 2.399) * (38 + seeded(index + 5) * 125),
+      y: 390 + Math.sin(index * 2.399) * (32 + seeded(index + 6) * 104),
+      r: 12 + seeded(index + 7) * 14,
     },
     end: {
       x: index < packedPositions.length ? packedPositions[index][0] : 600 + Math.cos(angle) * radius,
