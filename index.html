@@ -8,5 +8,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      const isRawViteSource = [...document.scripts].some((script) => script.src.endsWith("/src/main.tsx"));
+
+      if (window.location.hostname.endsWith("github.io") && isRawViteSource) {
+        import("./fallback.js");
+      }
+    </script>
   </body>
 </html>
