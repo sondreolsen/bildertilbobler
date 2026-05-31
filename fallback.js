@@ -85,7 +85,7 @@ root.innerHTML = `
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; background: #fff; color: #20142d; font-family: Inter, system-ui, sans-serif; }
-    body { min-width: 1024px; }
+    body { overflow-x: hidden; }
     main { min-height: 340vh; }
     .intro { width: min(920px, calc(100% - 96px)); margin: 0 auto; padding: 72px 0 12px; }
     .eyebrow { margin: 0 0 12px; color: #7c38c4; font-size: .78rem; font-weight: 800; text-transform: uppercase; }
@@ -108,6 +108,25 @@ root.innerHTML = `
     .dotDark { background: #6f2cb6; }
     .dotImage { border: 3px solid #5b22a0; background: #f7f0ff; }
     text { fill: #3a1b55; font-size: 22px; font-weight: 800; }
+    @media (max-width: 760px) {
+      main { min-height: 360vh; }
+      .intro { width: min(100% - 40px, 620px); padding: 36px 0 0; }
+      h1 { font-size: 3rem; line-height: 1; }
+      .lede { margin-top: 18px; font-size: 1rem; line-height: 1.55; }
+      .stage { align-items: start; padding: 136px 0 118px; }
+      svg { width: min(100vw, 520px); max-height: 58vh; transform: scale(1.2); transform-origin: 50% 12%; }
+      .status { top: 12px; left: 20px; right: 20px; width: auto; padding: 12px 14px; }
+      .step, .step:nth-of-type(3) { width: min(100% - 40px, 360px); margin-left: 20px; margin-right: 20px; padding: 46vh 0 32vh; }
+      .step:nth-of-type(3) { margin-left: auto; }
+      .legend { flex-wrap: wrap; justify-content: flex-start; gap: 10px 18px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); font-size: .82rem; }
+      .dot { width: 13px; height: 13px; }
+      text { font-size: 28px; }
+    }
+    @media (max-width: 420px) {
+      h1 { font-size: 2.55rem; }
+      svg { transform: scale(1.32); }
+      .legend { gap: 8px 12px; }
+    }
   </style>
   <main>
     <header class="intro">

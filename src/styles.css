@@ -17,7 +17,7 @@ html {
 
 body {
   margin: 0;
-  min-width: 1024px;
+  overflow-x: hidden;
   background: #ffffff;
 }
 
@@ -198,15 +198,104 @@ h1 {
 }
 
 @media (max-width: 1100px) {
-  body {
-    min-width: 960px;
-  }
-
   h1 {
     font-size: 4rem;
   }
 
   .stickyStage {
     padding-inline: 32px;
+  }
+}
+
+@media (max-width: 760px) {
+  main {
+    min-height: 360vh;
+  }
+
+  .story {
+    min-height: 350vh;
+  }
+
+  .intro {
+    width: min(100% - 40px, 620px);
+    padding: 36px 0 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lede {
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .stickyStage {
+    align-items: start;
+    padding: 136px 0 118px;
+  }
+
+  .chartShell {
+    width: min(100vw, 520px);
+    transform: scale(1.2);
+    transform-origin: 50% 12%;
+  }
+
+  .bubbleSvg {
+    width: 100%;
+    max-height: 58vh;
+  }
+
+  .bubbleLabel {
+    font-size: 28px;
+  }
+
+  .statusPanel {
+    top: 12px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    padding: 12px 14px;
+  }
+
+  .step,
+  .stepTwo {
+    width: min(100% - 40px, 360px);
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 46vh 0 32vh;
+  }
+
+  .stepTwo {
+    margin-left: auto;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 18px;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+    font-size: 0.82rem;
+  }
+
+  .dot {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 2.55rem;
+  }
+
+  .chartShell {
+    transform: scale(1.32);
+  }
+
+  .legend {
+    gap: 8px 12px;
   }
 }
